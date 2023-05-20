@@ -352,6 +352,48 @@ class DataManagerOpenCell(DataManagerBase):
             quiet=False,
         )
 
+    @staticmethod
+    def download_full_data(output: Optional[str] = 'full_data'):
+        """
+        Download full data
+
+        Parameters
+        ----------
+        output : str
+            Destination path
+        ----------
+        """
+        import gdown
+
+        data_links = {
+            'Image_data00.npy' : 'https://drive.google.com/file/d/15_CHBPT-p5JG44acP6D2hKd8jAacZatp',
+            'Image_data01.npy' : 'https://drive.google.com/file/d/1m7Cj2OALiZTIiHpvb9zFPG_I3j1wRnzK',
+            'Image_data02.npy' : 'https://drive.google.com/file/d/17nknzqlcYO3n9bAe4FwGVPkU-mJAhQ4j',
+            'Image_data03.npy' : 'https://drive.google.com/file/d/1vEsddF68dyOda-hwI-ptAL4vShBGl98Y',
+            'Image_data04.npy' : 'https://drive.google.com/file/d/1aB7WaRuhobG_IDl0l_PPeSJAxCYy-Pye',
+            'Image_data05.npy' : 'https://drive.google.com/file/d/1qb0waKcLprDtuFAdCec3WegWkmd-U45A',
+            'Image_data06.npy' : 'https://drive.google.com/file/d/1y-1vlfZ4eNhvTvpuqTZVL8DvSwYX3CH_',
+            'Image_data07.npy' : 'https://drive.google.com/file/d/1ejcPdh-d5lB1OcZ6x8SJx61pEUioZvB2',
+            'Image_data08.npy' : 'https://drive.google.com/file/d/1DOicAkruNsU5F4DWLzO2QrV6xU4kuVxs',
+            'Image_data09.npy' : 'https://drive.google.com/file/d/1a5YyHeRSRdJStG3KnFe2vsNjrsit9zbf',
+            'Label_data00.csv' : 'https://drive.google.com/file/d/1CVwvXW2KhVBbTBixwRXIIiMhrlGDXz-4',
+            'Label_data01.csv' : 'https://drive.google.com/file/d/1mTYe5icvWXNfY5wEsuQUhSwgtefBJpjg',
+            'Label_data02.csv' : 'https://drive.google.com/file/d/1HckmktklyPo6qbakrwtERsCT34mRdn7l',
+            'Label_data03.csv' : 'https://drive.google.com/file/d/1GBxDmWcl_o49i4lGujA8EgIn5G4htkBr',
+            'Label_data04.csv' : 'https://drive.google.com/file/d/1G4FpJnlqB3ejmdw3SF2w3DFYt8Wnq0fT',
+            'Label_data05.csv' : 'https://drive.google.com/file/d/1Vo1J09qP2TAoXwltCF84socz2TPV92JU',
+            'Label_data06.csv' : 'https://drive.google.com/file/d/1d7gJjLTQhOw-e9KZJY9pr6KOCIN8NBvp',
+            'Label_data07.csv' : 'https://drive.google.com/file/d/1kr5EF0RA3ZwSXmoaBFwFDVnrokh2EaOE',
+            'Label_data08.csv' : 'https://drive.google.com/file/d/1mXyedmLezzty2LSSH3asw0LQeu-ie9mz',
+            'Label_data09.csv' : 'https://drive.google.com/file/d/1Vdv1cD75VhvC3FdKTen-5rqLJnWpHvmb',
+        }
+
+        for key, value in data_links.items():
+            gdown.download(
+                url=value,
+                output=join(output, key),
+                quiet=False,
+            )
 
 def _assert_dtype(label, label_format):
     """
